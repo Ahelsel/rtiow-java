@@ -14,7 +14,7 @@ public class HittableList extends Hittable {
         HitRecord temp_rec = new HitRecord();
         boolean hit_anything = false;
         float closest_so_far = t_max;
-        for (Hittable hittable : hittableList) {
+        for (Hittable hittable : list) {
             if (hittable.hit(r, t_min, closest_so_far, temp_rec)) {
                 hit_anything = true;
                 closest_so_far = temp_rec.t;

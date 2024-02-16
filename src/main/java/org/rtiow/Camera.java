@@ -23,9 +23,17 @@ public class Camera {
     }
 
     public Ray get_ray(float u, float v) {
-        Vec3 rd = Vec3.random_in_unit_disk().mult(lens_radius);
+        Vec3 rd = random_in_unit_disk().mult(lens_radius);
         Vec3 offset = this.u.mult(rd.x()).add(this.v.mult(rd.y()));
         return new Ray(origin.add(offset), lower_left_corner.add(horizontal.mult(u)).add(vertical.mult(v)).sub(origin).sub(offset));
+    }
+
+    public Vec3 random_in_unit_disk() {
+        Vec3 p;
+        do {
+            p = new Vec3((float) (2 * Math.random() - 1), (float) (2 * Math.random() - 1), 0);
+        } while (p.dot(p) >= 1);
+        return p;
     }
 
 }

@@ -27,7 +27,7 @@ public class Material {
         } while (p.squared_length() >= 1.0);
         return p;
     }
-    boolean scatter(Ray r_in, Hittable rec, Vec3 attenuation, Ray scattered) {
+    boolean scatter(Ray r_in, HitRecord rec, Vec3 attenuation, Ray scattered) {
         return false;
     }
 }
